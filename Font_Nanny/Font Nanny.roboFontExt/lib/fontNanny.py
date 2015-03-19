@@ -481,6 +481,11 @@ class FontNanny(object):
                 pt = (pt.x, pt.y)
                 strayPoints[index] = pt
                 glyph.mark = (.7,.0,.7, .9)
+        for index, anchor in enumerate(glyph.anchors):
+            if anchor.name == "":
+                pt = (anchor.x, anchor.y)
+                strayPoints[index+1+len(strayPoints)] = pt
+                glyph.mark = (.7,.0,.7, .9)
 
     def testForPointsNearVerticalMetrics(self, glyph):
         """
